@@ -1,0 +1,15 @@
+{
+  "name": "jamfactory-types",
+  "version": "0.1.0",
+  "description": "Typescript type definitions for the JamFactory API",
+  "types": "index.d.ts",
+  "typeScriptVersion": "3.0",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "JamFactoryApp",
+  "license": "MIT",
+  "dependencies": {
+    "@types/spotify-api": "0.0.4"
+  }
+}
