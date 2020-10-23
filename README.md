@@ -1,5 +1,5 @@
 # Installation
-> `npm install --save JamFactoryTypes`
+> `npm install --save jamfactory-types`
 
 # Summary
 This package contains type definitions for the [JamFactory Api](https://github.com/JamFactoryApp/jamfactory-backend).
