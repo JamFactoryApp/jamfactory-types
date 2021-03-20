@@ -147,7 +147,7 @@ interface JamCollectionInfo {
 }
 
 interface JamQueue {
-    queue: JamQueueSong[];
+    tracks: JamQueueSong[];
 }
 
 /** PUT /api/v1/queue/collection */
