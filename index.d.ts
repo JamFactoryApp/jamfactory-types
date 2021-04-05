@@ -89,7 +89,7 @@ interface JamSessionSetting {
 
 interface JamPlaybackSettings {
     playing?: boolean;
-    device_id?: boolean;
+    device_id?: string;
 }
 
 interface JamLabelBody {
