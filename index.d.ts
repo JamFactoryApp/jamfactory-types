@@ -33,6 +33,15 @@ interface JamSuccessConfirmation {
 }
 
 /**
+ * Constants
+ */
+export const JamUserNew = 'New';
+export const JamUserGuest = 'Guest';
+export const JamUserHost = 'Host';
+export const JamSessionVoting = 'session_voting';
+export const JamIpVoting = 'ip_voting';
+
+/**
  * Queue Song Object
  */
 // JamQueueSong
@@ -196,6 +205,12 @@ export type SpotifySearchResponseBody = SpotifySearchResponse;
 /** ---------------------------------------------------------------------------------------------------------------------
  * Websockets
  */
+
+export const JamSocketEventJam = 'jam';
+export const JamSocketEventQueue = 'queue';
+export const JamSocketEventPlayback = 'playback';
+export const JamSocketEventClose = 'close';
+
 
 interface SocketNotification {
     event: string,
