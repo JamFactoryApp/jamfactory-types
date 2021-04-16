@@ -217,6 +217,10 @@ interface SocketNotification {
     message: SocketQueueMessage | SocketPlaybackMessage | SocketCloseMessage | JamSessionDetails
 }
 
+export const JamCloseReasonHost = 'host';
+export const JamCloseReasonInactive = 'inactive';
+export const JamCloseReasonWarning = 'warning';
+
 interface CloseEvent {
     reason: string;
 }
