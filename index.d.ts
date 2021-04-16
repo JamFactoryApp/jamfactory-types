@@ -199,7 +199,7 @@ export type SpotifySearchResponseBody = SpotifySearchResponse;
 
 interface SocketNotification {
     event: string,
-    message: SocketQueueMessage | SocketPlaybackMessage | SocketCloseMessage
+    message: SocketQueueMessage | SocketPlaybackMessage | SocketCloseMessage | JamSessionDetails
 }
 
 interface CloseEvent {
@@ -211,6 +211,8 @@ type SocketQueueMessage = JamQueue;
 type SocketPlaybackMessage = JamPlaybackBody;
 
 type SocketCloseMessage = string;
+
+type SocketJamMessage = JamSessionDetails
 
 export type SocketNotificationBody = SocketNotification;
 
