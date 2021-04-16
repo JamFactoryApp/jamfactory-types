@@ -33,12 +33,12 @@ jobs:
     - run: npm install
 
     # Publish to NPM Packages
-    - uses: JS-DevTools/npm-publish@v1
+    - uses: JS-DevTools/npm-publish@v1.4.3
       with:
         token: ${{ secrets.NPM_TOKEN }}
 
     # Publish to GitHub Packages
-    - uses: JS-DevTools/npm-publish@v1
+    - uses: JS-DevTools/npm-publish@v1.4.3
       with:
         registry: 'https://npm.pkg.github.com'
         token: ${{ secrets.GITHUB_TOKEN }}
