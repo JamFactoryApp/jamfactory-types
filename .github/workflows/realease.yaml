@@ -35,8 +35,7 @@ jobs:
     # Publish to NPM Packages
     - uses: JS-DevTools/npm-publish@v1
       with:
-        registry: 'https://registry.npmjs.org/'
-        token: ${{ secrets.GITHUB_TOKEN }}
+        token: ${{ secrets.NPM_TOKEN }}
 
     # Publish to GitHub Packages
     - uses: JS-DevTools/npm-publish@v1
