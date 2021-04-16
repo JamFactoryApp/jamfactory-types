@@ -16,12 +16,12 @@ jobs:
 
     # Publish to NPM Packages
     - uses: JS-DevTools/npm-publish@v1
-        with:
-          registry: 'https://registry.npmjs.org/'
-          token: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        registry: 'https://registry.npmjs.org/'
+        token: ${{ secrets.GITHUB_TOKEN }}
 
     # Publish to GitHub Packages
     - uses: JS-DevTools/npm-publish@v1
-        with:
-          registry: 'https://npm.pkg.github.com'
-          token: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        registry: 'https://npm.pkg.github.com'
+        token: ${{ secrets.GITHUB_TOKEN }}
