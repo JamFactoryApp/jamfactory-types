@@ -93,7 +93,7 @@ interface JamSessionDetails {
 interface JamSessionSetting {
     name?: string;
     active?: boolean;
-    voting_type?: boolean;
+    voting_type?: string;
 }
 
 interface JamPlaybackSettings {
