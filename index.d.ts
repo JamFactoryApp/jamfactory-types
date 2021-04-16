@@ -84,7 +84,7 @@ interface JamSessionDetails {
 interface JamSessionSetting {
     name?: string;
     active?: boolean;
-    ip_voting: boolean;
+    voting_type?: boolean;
 }
 
 interface JamPlaybackSettings {
