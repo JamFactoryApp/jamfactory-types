@@ -38,15 +38,13 @@ interface JamSuccessConfirmation {
 export const JamUserNew = 'New';
 export const JamUserGuest = 'Guest';
 export const JamUserHost = 'Host';
-export const JamSessionVoting = 'session_voting';
-export const JamIpVoting = 'ip_voting';
 
 /**
  * Queue Song Object
  */
 // JamQueueSong
 interface JamQueueSong {
-    spotifyTrackFull: SpotifyApi.TrackObjectFull;
+    spotifyTrackFull: SpotifyTrackObjectFull;
     votes: number;
     voted: boolean;
 }
@@ -57,19 +55,9 @@ export type QueueSong = JamQueueSong;
  * /api/v1/auth Endpoints
  */
 
-interface JamAuthStatus {
-    user: string;
-    label: string;
-    authorized: boolean;
-}
-
 interface JamAuthUrl {
     url: string;
 }
-
-/** GET /api/v1/auth/current */
-export type AuthCurrentRequestBody = JamEmptyRequest;
-export type AuthCurrentResponseBody = JamAuthStatus;
 
 /** GET /api/v1/auth/logout */
 export type LogoutRequestBody = JamEmptyRequest;
@@ -80,6 +68,34 @@ export type LoginRequestBody = JamEmptyRequest;
 export type LoginResponseBody = JamAuthUrl;
 
 /** ---------------------------------------------------------------------------------------------------------------------
+ * /api/v1/me Endpoints
+ */
+
+interface JamUser {
+    identifier: string;
+    display_name: string;
+    type: string;
+    joined_label: string;
+    spotify_authorized: boolean
+}
+
+interface JamUserDetails {
+    display_name: string;
+}
+
+/** GET /api/v1/me */
+export type GetUserRequestBody = JamEmptyRequest
+export type GetUserResponseBody = JamUser
+
+/** PUT /api/v1/me */
+export type PutUserRequestBody = JamUserDetails
+export type PutUserResponseBody = JamUser
+
+/** DELETE /api/v1/me */
+export type DeleteUserRequestBody = JamEmptyRequest
+export type DeleteUserResponseBody = JamSuccessConfirmation
+
+/** ---------------------------------------------------------------------------------------------------------------------
  * /api/v1/jam Endpoints
  */
 
@@ -87,13 +103,11 @@ interface JamSessionDetails {
     label: string;
     name: string;
     active: boolean;
-    voting_type: string;
 }
 
 interface JamSessionSetting {
     name?: string;
     active?: boolean;
-    voting_type?: string;
 }
 
 interface JamPlaybackSettings {
@@ -110,6 +124,16 @@ interface JamPlaybackBody {
     device_id: string;
 }
 
+interface JamMember {
+    display_name: string;
+    identifier: string;
+    rights: string;
+}
+
+interface JamMemberSettings {
+    identifier: string;
+    rights: string;
+}
 
 /** PUT /api/v1/jam/create */
 export type CreateJamSessionRequestBody = JamEmptyRequest;
@@ -140,7 +164,13 @@ export type SetPlaybackResponseBody = JamPlaybackBody;
 export type SetJamSessionRequestBody = JamSessionSetting;
 export type SetJamSessionResponseBody = JamSessionDetails;
 
+/** GET /api/v1/jam/members */
+export type GetJamSessionMembersRequestBody = JamEmptyRequest;
+export type GetJamSessionMembersResponseBody = JamMember[];
 
+/** PUT /api/v1/jam/members */
+export type SetJamSessionMembersRequestBody = JamMemberSettings[];
+export type SetJamSessionMembersResponseBody = JamMember[];
 
 /** ---------------------------------------------------------------------------------------------------------------------
  * /api/v1/queue Endpoints
@@ -210,11 +240,12 @@ export const JamSocketEventJam = 'jam';
 export const JamSocketEventQueue = 'queue';
 export const JamSocketEventPlayback = 'playback';
 export const JamSocketEventClose = 'close';
+export const JamSocketEventMembers = 'members'
 
 
 interface SocketNotification {
     event: string,
-    message: SocketQueueMessage | SocketPlaybackMessage | SocketCloseMessage | JamSessionDetails
+    message: SocketQueueMessage | SocketPlaybackMessage | SocketCloseMessage | SocketJamMessage | SocketMembersMessage
 }
 
 export const JamCloseReasonHost = 'host';
@@ -232,6 +263,8 @@ type SocketPlaybackMessage = JamPlaybackBody;
 type SocketCloseMessage = string;
 
 type SocketJamMessage = JamSessionDetails
+
+type SocketMembersMessage = JamMember[]
 
 export type SocketNotificationBody = SocketNotification;
 
