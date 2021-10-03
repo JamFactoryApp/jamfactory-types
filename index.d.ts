@@ -35,9 +35,8 @@ interface JamSuccessConfirmation {
 /**
  * Constants
  */
-export const JamUserNew = 'New';
-export const JamUserGuest = 'Guest';
-export const JamUserHost = 'Host';
+export const JamRightGuest = 'Guest';
+export const JamRightHost = 'Host';
 
 /**
  * Queue Song Object
@@ -88,8 +87,8 @@ export type GetUserRequestBody = JamEmptyRequest
 export type GetUserResponseBody = JamUser
 
 /** PUT /api/v1/me */
-export type PutUserRequestBody = JamUserDetails
-export type PutUserResponseBody = JamUser
+export type SetUserRequestBody = JamUserDetails
+export type SetUserResponseBody = JamUser
 
 /** DELETE /api/v1/me */
 export type DeleteUserRequestBody = JamEmptyRequest
