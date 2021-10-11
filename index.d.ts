@@ -246,7 +246,7 @@ type SocketCloseMessage = string;
 
 type SocketJamMessage = JamSessionDetails
 
-type SocketMembersMessage = JamMember[]
+type SocketMembersMessage = JamMembers
 
 export type SocketNotificationBody = SocketNotification;
 
