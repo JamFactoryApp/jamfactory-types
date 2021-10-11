@@ -1,6 +1,6 @@
 {
   "name": "@jamfactoryapp/jamfactory-types",
-  "version": "0.2.0-beta.1",
+  "version": "0.2.0-beta.2",
   "description": "Typescript type definitions for the JamFactory API",
   "types": "index.d.ts",
   "typeScriptVersion": "3.0",
