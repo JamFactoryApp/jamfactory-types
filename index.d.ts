@@ -33,12 +33,6 @@ interface JamSuccessConfirmation {
 }
 
 /**
- * Constants
- */
-export const JamRightGuest = 'Guest';
-export const JamRightHost = 'Host';
-
-/**
  * Queue Song Object
  */
 // JamQueueSong
@@ -129,9 +123,8 @@ interface JamMember {
     rights: string;
 }
 
-interface JamMemberSettings {
-    identifier: string;
-    rights: string;
+interface JamMembers {
+    members: JamMember[]
 }
 
 /** PUT /api/v1/jam/create */
@@ -165,11 +158,11 @@ export type SetJamSessionResponseBody = JamSessionDetails;
 
 /** GET /api/v1/jam/members */
 export type GetJamSessionMembersRequestBody = JamEmptyRequest;
-export type GetJamSessionMembersResponseBody = JamMember[];
+export type GetJamSessionMembersResponseBody = JamMembers;
 
 /** PUT /api/v1/jam/members */
-export type SetJamSessionMembersRequestBody = JamMemberSettings[];
-export type SetJamSessionMembersResponseBody = JamMember[];
+export type SetJamSessionMembersRequestBody = JamMembers;
+export type SetJamSessionMembersResponseBody = JamMembers;
 
 /** ---------------------------------------------------------------------------------------------------------------------
  * /api/v1/queue Endpoints
@@ -235,21 +228,11 @@ export type SpotifySearchResponseBody = SpotifySearchResponse;
  * Websockets
  */
 
-export const JamSocketEventJam = 'jam';
-export const JamSocketEventQueue = 'queue';
-export const JamSocketEventPlayback = 'playback';
-export const JamSocketEventClose = 'close';
-export const JamSocketEventMembers = 'members'
-
 
 interface SocketNotification {
     event: string,
     message: SocketQueueMessage | SocketPlaybackMessage | SocketCloseMessage | SocketJamMessage | SocketMembersMessage
 }
-
-export const JamCloseReasonHost = 'host';
-export const JamCloseReasonInactive = 'inactive';
-export const JamCloseReasonWarning = 'warning';
 
 interface CloseEvent {
     reason: string;
