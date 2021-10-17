@@ -120,7 +120,7 @@ interface JamPlaybackBody {
 interface JamMember {
     display_name: string;
     identifier: string;
-    rights: string;
+    permissions: string;
 }
 
 interface JamMembers {
