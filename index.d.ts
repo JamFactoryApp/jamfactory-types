@@ -181,6 +181,16 @@ interface JamQueue {
     tracks: JamQueueSong[];
 }
 
+interface JamQueueHistory {
+    history: JamQueueSong[];
+}
+
+interface JamExportRequest {
+    playlist_name: string,
+    include_queue: boolean,
+    include_history: boolean
+}
+
 /** PUT /api/v1/queue/collection */
 export type AddCollectionRequestBody = JamCollectionInfo;
 export type AddCollectionResponseBody = JamQueue;
@@ -197,6 +207,13 @@ export type GetQueueResponseBody = JamQueue;
 export type VoteRequestBody = JamVote;
 export type VoteResponseBody = JamQueue;
 
+/** GET /api/v1/queue/history */
+export type QueueHistoryRequestBody = JamEmptyRequest;
+export type QueueHistoryResponseBody = JamQueueHistory;
+
+/** PUT /api/v1/queue/export */
+export type QueueExportRequestBody = JamExportRequest;
+export type QueueExportResponseBody = JamSuccessConfirmation;
 
 /** ---------------------------------------------------------------------------------------------------------------------
  * /api/v1/spotify Endpoints
