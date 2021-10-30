@@ -101,11 +101,17 @@ interface JamSessionDetails {
 interface JamSessionSetting {
     name?: string;
     active?: boolean;
+    password?: boolean;
 }
 
 interface JamPlaybackSettings {
     playing?: boolean;
     device_id?: string;
+}
+
+interface JamJoinBody {
+    label: string;
+    password: string;
 }
 
 interface JamLabelBody {
@@ -115,6 +121,12 @@ interface JamLabelBody {
 interface JamPlaybackBody {
     playback: SpotifyPlaybackState;
     device_id: string;
+    volume: number;
+}
+
+interface JamPlaySongBody {
+    track: string;
+    remove: boolean;
 }
 
 interface JamMember {
@@ -131,7 +143,6 @@ interface JamMembers {
 export type CreateJamSessionRequestBody = JamEmptyRequest;
 export type CreateJamSessionResponseBody = JamLabelBody;
 
-
 /** GET /api/v1/jam */
 export type GetJamSessionRequestBody = JamEmptyRequest;
 export type GetJamSessionResponseBody = JamSessionDetails;
@@ -140,8 +151,12 @@ export type GetJamSessionResponseBody = JamSessionDetails;
 export type GetPlaybackRequestBody = JamEmptyRequest;
 export type GetPlaybackResponseBody = JamPlaybackBody;
 
+/** PUT /api/v1/jam/play */
+export type GetPlayRequestBody = JamPlaySongBody;
+export type GetPlayResponseBody = JamSuccessConfirmation;
+
 /** GET /api/v1/jam/join */
-export type JoinRequestBody = JamLabelBody;
+export type JoinRequestBody = JamJoinBody;
 export type JoinResponseBody = JamLabelBody;
 
 /** GET /api/v1/jam/leave */
