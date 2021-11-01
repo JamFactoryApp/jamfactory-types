@@ -107,6 +107,7 @@ interface JamSessionSetting {
 interface JamPlaybackSettings {
     playing?: boolean;
     device_id?: string;
+    volume?: number;
 }
 
 interface JamJoinBody {
@@ -121,7 +122,6 @@ interface JamLabelBody {
 interface JamPlaybackBody {
     playback: SpotifyPlaybackState;
     device_id: string;
-    volume: number;
 }
 
 interface JamPlaySongBody {
