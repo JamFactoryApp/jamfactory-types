@@ -132,7 +132,7 @@ interface JamPlaySongBody {
 interface JamMember {
     display_name: string;
     identifier: string;
-    permissions: string;
+    permissions: string[];
 }
 
 interface JamMembers {
