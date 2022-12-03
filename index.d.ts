@@ -101,7 +101,7 @@ interface JamSessionDetails {
 interface JamSessionSetting {
     name?: string;
     active?: boolean;
-    password?: boolean;
+    password?: string;
 }
 
 interface JamPlaybackSettings {
