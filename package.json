@@ -1,6 +1,6 @@
 {
   "name": "@jamfactoryapp/jamfactory-types",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Typescript type definitions for the JamFactory API",
   "types": "index.d.ts",
   "typeScriptVersion": "3.0",
@@ -10,7 +10,7 @@
   "author": "JamFactoryApp",
   "license": "MIT",
   "dependencies": {
-    "@types/spotify-api": "^0.0.15"
+    "@types/spotify-api": "^0.0.19"
   },
   "repository": {
     "type": "git",
